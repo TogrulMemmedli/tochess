@@ -43,7 +43,7 @@ To objectively measure the model's progress, it starts with an absolute baseline
 * **In Progress:** 
   * Setting up the visual chess board (UI) and core environment.
   * Implementing core chess logic and legal move generation.
-* **Backlog:** * 
+* **Backlog:** 
   * Build the baseline benchmark agents.
   * Build the self-play mechanism and data collection.
   * Implement automated Elo chart generation.
