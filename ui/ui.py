@@ -8,15 +8,20 @@ import time
 
 from agents.random_agent import RandomAgent
 from agents.greedy_agent import GreedyAgent
+from agents.simple_heuristic_agent import HeuristicAgent
+from agents.external_agent import UciAgent
 
 WIDTH, HEIGHT = 400, 400
 DIMENSION = 8  
 SQ_SIZE = HEIGHT // DIMENSION
-COLORS = [pygame.Color("white"), pygame.Color("black")] 
+COLORS = [pygame.Color("white"), pygame.Color("blue")] 
 IMAGES = {}
 
-WHITE_PLAYER = RandomAgent()
-BLACK_PLAYER = GreedyAgent() 
+WHITE_PLAYER = HeuristicAgent()
+BLACK_PLAYER = UciAgent(name="Stockfish", 
+                        engine_path="/usr/games/stockfish", 
+                        engine_options={"UCI_LimitStrength": True, "UCI_Elo": 1320},
+                        time_limit=0.1) 
 
 def load_images():
     pieces = ['wp', 'wr', 'wk', 'wb', 'wK', 'wq', 'bp', 'br', 'bk', 'bb', 'bK', 'bq']
@@ -75,7 +80,7 @@ def draw_pieces(screen, board):
 def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("tochess UI v0.1.0")
+    pygame.display.set_caption("tochess UI v0.0.1")
     load_images()
     
     board = chess.Board() 
@@ -153,7 +158,7 @@ def main():
             
             if current_agent != 'human':
                 pygame.display.flip()
-                time.sleep(0.1) 
+                time.sleep(0.5) 
                 
                 move = current_agent.get_move(board)
                 if move:
