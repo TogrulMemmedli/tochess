@@ -40,9 +40,10 @@ To objectively measure the model's progress, it starts with an absolute baseline
 
 * **Completed:** 
   * Project initialization.
-* **In Progress:** 
   * Setting up the visual chess board (UI) and core environment.
   * Implementing core chess logic and legal move generation.
+  * Chess Agents Created: Random, Greedy, Greedy+ and external 
+* **In Progress:** 
 * **Backlog:** 
   * Build the baseline benchmark agents.
   * Build the self-play mechanism and data collection.
